@@ -6,9 +6,8 @@
                 Web3 Full-stack dev
             </p>
 
-            <div class="stack-slider">
-            stack slider ( will do later)
-            </div>
+            <StackSlider />
+
         </div>
 
         <div class="hero-right">
@@ -18,17 +17,20 @@
 </template>
 
 <script>
+import StackSlider from '../components/StackSlider.vue';
+
 export default {
     name: "Hero",
+    components: { StackSlider },
 };
 </script>
 
 <style scoped>
 .hero {
-    min-height: 100hv;
+    min-height: 100vh;
     display: grid;
     grid-template-columns: 1.2fr 1fr;
-    align-item: center;
+    align-items: center;
     padding: 4rem;
     color: white;
 }
