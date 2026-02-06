@@ -1,5 +1,6 @@
 <template>
   <BackgroundVideo />
+  <Hero />
   <div id="app">
     Portoflio Loading ...
     </div>
@@ -7,6 +8,7 @@
 
 <script>
 import BackgroundVideo from './components/BackgroundVideo.vue';
+import Hero from "./sections/Hero.vue";
 
 export default {
   components: { BackgroundVideo },
