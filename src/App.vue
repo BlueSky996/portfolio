@@ -11,6 +11,17 @@ import Hero from "./sections/Hero.vue";
 
 export default {
   components: { BackgroundVideo, Hero, ProjectsGrid },
+  data() {
+    return {
+      selectedProject: null,
+    };
+  },
 };
 </script>
+
+<template>
+  <BackgroundVideo />
+  <Hero :project="selectedProject" />
+  <ProjectsGrid @select="selectedProject = $event" />
+</template>
 

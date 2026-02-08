@@ -2,9 +2,9 @@
     <section class="hero">
         <div class="glass">
           <div class="hero-left">
-             <h1>Mohamed Khasheebah</h1>
+             <h1>{{ project?.title || "Mohamed Khasheebah"}}</h1>
                 <p>
-                Web3 Full-stack dev
+                   {{ project?.tagline || "Web3 / Rust / Smart Contracts" }}
                 </p>
 
             <StackSlider />
@@ -23,6 +23,9 @@ import StackSlider from '../components/StackSlider.vue';
 export default {
     name: "Hero",
     components: { StackSlider },
+    props: {
+        project: Object,
+    },
 };
 </script>
 

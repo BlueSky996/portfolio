@@ -4,6 +4,7 @@
           v-for="project in projects"
           :key="project.title"
           class="project-card"
+          @click="$emit(`select`, project)"
         >
           <img :src="project.image" alt="" />
           <h3>{{ project.title }}</h3>
