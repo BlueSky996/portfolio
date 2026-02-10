@@ -1,9 +1,9 @@
 <template>
     <section class="hero">
-        <div class="hero-bg"> </div>
-
-
           <div class="hero-content">
+
+            gdfg dsfdsf dsf sdf ds fds fds fdsf ds 
+            
             <div class="hero-text">
                <h1>{{ project?.title || "Mohamed Khasheebah"}}</h1>
                  <p>
@@ -49,16 +49,44 @@ export default {
     props: {
         project: Object,
     },
-        Mounted() {
-        gsap.from(".hero", {
-            opacity: 0,
-            y: 40,
-            duration: 1,
-            ease: "power3.out",
+    watch: {
+        project() {
+            this.animateSwap();
+        },
+    },
+        mounted() {
+            this.animateIn();
+        }, 
+        methods: {
+            animateIn() {
+            const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
+            tl.from(".hero-text h1", { y: 40, opacity: 0, duration: 0.8, })
+            .from(".hero-text p", { y: 30, opacity: 0, duration: 0.6 },"-=0.4")
+            .from(".stats li",{ y: 20, opacity: 0, stagger: 0.12, duration: 0.5 },"-=0.3")
+            .from(".hero-visual img",{ y: 60, opacity: 0, scale: 0.95, duration: 0.9 },"-=0.4");
+      },
+
+    animateOut(onComplete) {
+        gsap.to(
+            [".hero-text h1", ".hero-text p", ".stats li", ".hero-visual img"],
+            {y: -20, opacity: 0, stagger: 0.05, duration: 0.3, onComplete}
+        );
+    },
+
+    animateSwap() {
+        this.animateOut(() => {
+            this.$nextTick(() => {
+                this.animateIn();
+            });
         });
     },
+},
+
 };
+
 </script>
+
+
 
 <style scoped>
 
@@ -81,12 +109,22 @@ export default {
 
 
 .hero-text {
-    position: relative;
+    position: absolute;
     left: 8%;
     top: 50%;
-    transform: translate(-50%);
+    transform: translateY(-50%);
     max-width: 520px;
     z-index: 2;
+}
+
+.hero-text h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.hero-text p {
+    opacity: 0.9;
+    line-height: 1.6;
 }
 
 .hero-visual {
@@ -99,7 +137,8 @@ export default {
 .hero-visual img {
     width: 360px;
     filter: drop-shadow(0 30px 40px rgba(0, 0, 0, 0.6));
-
+    transition: transform 0.4s ease, filter 0.4 ease;
+    will-change: transform;
 }
 
 .hero-visual img:hover {

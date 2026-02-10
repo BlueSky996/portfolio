@@ -30,7 +30,7 @@ export default {
 <style scoped>
 .slider {
     overflow: hidden;
-    marign-top: 1.5rem;
+    margin-top: 1.5rem;
     height: 32px;
 }
 
@@ -40,7 +40,7 @@ export default {
     opacity: 0.85 ;
 }
 
-@keyframe scroll {
+@keyframes scroll {
     from {
         transform: translateX(0);
     }
