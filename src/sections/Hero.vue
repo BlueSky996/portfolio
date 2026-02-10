@@ -7,6 +7,22 @@
                    {{ project?.tagline || "Web3 / Rust / Smart Contracts" }}
                 </p>
 
+                <ul class="stats">
+                    <li>
+                        <span class="label">Role</span>
+                        <span class="value">{{ project?.role || "Full-Stack Web3" }}</span>
+                    </li>
+                    <li>
+                        <span class="label">Stack</span>
+                        <span class="value">{{ project?.stack || "Rust . Solana . AI" }}</span>
+                    </li>
+                    <li>
+                        <span class="label">Status</span>
+                        <span class="value">{{ project?.status || "Active" }}</span>
+                    </li>
+                </ul>
+
+
             <StackSlider />
            </div>
 
@@ -76,5 +92,30 @@ export default {
 .hero-right img:hover {
     transform: translateY(-8px) scale(1.02);
     filter: drop-shadow(0 40px 60px rgba(0, 0, 0, 0.7))
+}
+
+.stats {
+    display: flex;
+    gap: 2rem;
+    margin: 1.5rem 0 2rem;
+    padding: 0;
+    list-style: none;
+}
+
+.stats li {
+    display: flex;
+    flex-direction: column;
+    font-size: 0.85rem;
+}
+
+.label {
+    opacity: 0.6;
+    text-transform: uppercase;
+    font-size: 0.7rem;
+    letter-spacing: 1px;
+}
+
+.value {
+    font-weight: 600;
 }
 </style>
