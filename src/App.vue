@@ -1,7 +1,9 @@
 <template>
+  <main class="stage">
   <BackgroundVideo />
   <Hero :project="selectedProject" />
   <ProjectsGrid @select="selectedProject = $event" />
+  </main>
 </template>
 
 <script>
@@ -18,9 +20,12 @@ export default {
     };
   },
 
-  mounted() {
-    this.selectedProject = null;
-
-  },
 };
 </script>
+
+<style>
+.stage {
+  width: 100%;
+  overflow-x: hidden;
+}
+</style>

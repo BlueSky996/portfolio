@@ -49,4 +49,10 @@ export default {
     }
 }
 
+.track {
+    display: inline-block;
+    white-space: nowrap;
+    animation: scroll 20s linear infinite;
+}
+
 </style>

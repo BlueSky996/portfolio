@@ -21,6 +21,9 @@
 </template>
 
 <script>
+
+import { gsap } from "gsap";
+
 export default {
     name: "ProjectsGrid",
     data() {
@@ -89,8 +92,8 @@ export default {
     cursor: pointer;
 }
 
-.projects-card hover {
-    transform: translate(-6px);
+.project-card:hover {
+    transform: translateY(-6px);
 }
 
 .thumb img {
