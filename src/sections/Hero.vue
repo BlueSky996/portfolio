@@ -1,8 +1,5 @@
 <template>
     <section class="hero">
-        <div class="hero-top-bar"></div>
-        <div class="hero-bottom-bar"></div>
-
 
           <div class="hero-content"> 
             
@@ -19,7 +16,7 @@
 
             <!-- Visual -->
              <div class="hero-visual">
-                <img src="../assets/me.jpg" alt="Me"/>
+                <img src="../assets/me.png" alt="Me"/>
              </div>
              </div>
 
@@ -82,12 +79,17 @@ export default {
         methods: {
             animateIn() {
             const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
+
+            // Set initial state to prevent disappearing issue
+            gsap.set([".hero-geometry", ".hero-visual img", ".hero-cv", ".rank-number", ".hero-title-box h1", ".hero-description"], {
+                clearProps: "all"
+            });
+
             tl.from(".hero-title-box h1", { x: 50, opacity: 0, duration: 1 })
             .from(".hero-description", { y: 30, opacity: 0, duration: 0.8 },"-=0.6")
-            .from(".hero-rank",{ y: 30, opacity: 0, stagger: 0.15, duration: 0.6 },"-=0.5")
-            .from(".hero-visual img",{ y: 80, opacity: 0, scale: 0.95, duration: 1 },"-=0.8")
+            .from(".rank-number",{ y: -30, opacity: 0, stagger: 0.15, duration: 0.6 },"-=0.5")
+            .from(".hero-visual img",{ x: -100, opacity: 0, scale: 0.95, duration: 1 },"-=0.8")
             .from(".hero-geometry", { scale: 0, rotation: -45, opacity: 0, duration: 1.2 })
-            .from(".hero-visual img", { x: -100, opacity: 0, scale: 0.9, duration: 1 }, "-=0.8");
       },
 
     animateOut(onComplete) {
@@ -111,9 +113,6 @@ export default {
 
 <style scoped>
 
-.hero * {
-    transition: all 0.35s;
-}
 
 .hero {
     position: relative;
@@ -172,8 +171,8 @@ export default {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%) rotate(-15deg);
-    width: 600px;
-    height: 600px;
+    width: 1000px;
+    height: 1000px;
     background:
         conic-gradient(from 0deg at 50% 50%,
              #ff0080 0deg,
@@ -190,6 +189,7 @@ export default {
     z-index: 1;
     pointer-events: none;
     filter: blur(2px);
+    visibility: visible !important;
 }
 
 
@@ -243,27 +243,8 @@ export default {
 
 .hero-visual img:hover {
     transform: translateY(-8px) scale(1.02);
-    filter: drop-shadow(0 40px 60px rgba(0, 0, 0, 0.7))
-}
-
-
-
-.hero-top-bar,
-.hero-bottom-bar {
-    position: absolute;
-    left: 0;
-    width: 100%;
-    height: 80px;
-    background: #000;
-    z-index: 10;
-}
-
-.hero-top-bar {
-    top: 0;
-}
-
-.hero-bottom-bar {
-    bottom: 0;
+    filter: drop-shadow(0 40px 60px rgba(0, 0, 0, 0.7));
+    transition: transform 0.35s filter 0.35s;
 }
 
 
@@ -327,7 +308,7 @@ export default {
 }
 
 .rank-label {
-    font-size: 0.7rem;
+    font-size: 1.1rem;
     letter-spacing: 2px;
     opacity: 0.6;
     text-transform: uppercase;
@@ -336,6 +317,7 @@ export default {
 }
 
 .rank-number {
+    visibility: visible !important;
     font-size: clamp(5rem, 10vw, 9rem);
     font-weight: 800;
     color: #ff2a2a;
@@ -370,7 +352,7 @@ export default {
 
 
 .hero-title-box h1 {
-    font-size: 1.8rem;
+    font-size: 2.8rem;
     font-weight: 700;
     margin: 0;
     text-transform: lowercase;
