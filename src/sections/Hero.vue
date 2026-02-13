@@ -1,28 +1,29 @@
 <template>
     <section class="hero">
-
         <div class="hero-top-bar"></div>
 
 
           <div class="hero-content"> 
             
-            <!-- left side -->
+            <!-- left side + Visual + Geometry-->
              <div class="hero-left">
+                <!-- Cv Label overly -->
                 <div class="hero-cv">
                     <span class="cv-label">CV</span>
                     <span class="cv-name">Mohamed Khasheebah</span>
                 </div>
 
+            <!-- Geometric background -->
+             <div class="hero-geometry"></div>
+
             <!-- Visual -->
              <div class="hero-visual">
-                <img src="../assets//me.jpg" alt="Me"/>
+                <img src="../assets/me.jpg" alt="Me"/>
+             </div>
              </div>
 
-             </div>
-
-             <!-- Right Side-->
+             <!-- Right Side - Content -->
             <div class="hero-right">
-
 
                 <div class="hero-rank">
                     <span class="rank-label">Ranking NO</span>
@@ -83,15 +84,17 @@ export default {
         methods: {
             animateIn() {
             const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
-            tl.from(".hero-text h1", { y: 50, opacity: 0, duration: 1, })
-            .from(".hero-text p", { y: 40, opacity: 0, duration: 0.8 },"-=0.6")
-            .from(".stats li",{ y: 30, opacity: 0, stagger: 0.15, duration: 0.6 },"-=0.5")
-            .from(".hero-visual img",{ y: 80, opacity: 0, scale: 0.95, duration: 1 },"-=0.8");
+            tl.from(".hero-title-box h1", { x: 50, opacity: 0, duration: 1 })
+            .from(".hero-description", { y: 30, opacity: 0, duration: 0.8 },"-=0.6")
+            .from(".hero-rank",{ y: 30, opacity: 0, stagger: 0.15, duration: 0.6 },"-=0.5")
+            .from(".hero-visual img",{ y: 80, opacity: 0, scale: 0.95, duration: 1 },"-=0.8")
+            .from(".hero-geometry", { scale: 0, rotation: -45, opacity: 0, duration: 1.2 })
+            .from(".hero-visual img", { x: -100, opacity: 0, scale: 0.9, duration: 1 }, "-=0.8");
       },
 
     animateOut(onComplete) {
         gsap.to(
-            [".hero-text h1", ".hero-text p", ".stats li", ".hero-visual img"],
+            [".hero-title-box h1", ".hero-description p", ".hero-rank", ".hero-visual img"],
             {y: -20, opacity: 0, stagger: 0.05, duration: 0.3, onComplete}
         );
     },
@@ -117,19 +120,19 @@ export default {
 .hero {
     position: relative;
     display: flex;
+    flex-direction: column;
     min-height: 100vh;
-    width: 100vw;
+    width: 100%;
     overflow: hidden;
-    padding: 0 8vw;
-    align-items: center;
+    padding: 0 6vw;
     box-sizing: border-box;
 
     background:
-    radial-gradient(circle at 70% 40%, rgba(255,255,255,0.06), transparent 60%),
+    radial-gradient(circle at 30% 50%, rgba(255,255,255,0.06), transparent 50%),
     linear-gradient(to right, rgba(255,255,255,0.03) 1px, transparent 1px),
     #0e0e0e;
 
-    background-size: auto, 40px 40px, auto;
+    background-size: auto, 50px 50px, auto;
     
 }
 
@@ -137,12 +140,26 @@ export default {
 .hero::before {
   content: "X";
   position: absolute;
-  top: 10%;
-  left: 6%;
-  font-size: 14rem;
+  top: 8%;
+  left: 3%;
+  font-size: 30rem;
   font-weight: 900;
-  opacity: 0.04;
+  opacity: 0.03;
   z-index: 0;
+  line-height: 1;
+}
+
+.hero::after {
+    content: "";
+    position: absolute;
+    right: -15%;
+    top: -10;
+    width: 70%;
+    height: 120%;
+    background: linear-gradient(135deg, rgba(255,255,255,0.04), transparent 60%);
+    transform: skewX(-15deg);
+    z-index: 0;
+    pointer-events: none;
 }
 
 
@@ -152,48 +169,85 @@ export default {
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    padding-top: 80px;
-    padding-bottom: 80px;
+    flex: 1;
+    padding: 80px 0;
+    gap: 6rem;
     z-index: 2;
 }
 
 
-.hero-text {
-    flex: 1;
-    max-width: 520px;
-    z-index: 3;
+.hero-geometry {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-15deg);
+    width: 600px;
+    height: 600px;
+    background:
+        conic-gradient(from 0deg at 50% 50%,
+             #ff0080 0deg,
+             #00f0ff 60deg,
+             #ffff00 120deg,
+             #ff0080 180deg,
+             #00ff00 240deg,
+             #ff0080 300deg,
+             transparent 360deg
+        ),
+        radial-gradient(circle, rgba(255,0,128,0.3) 0%, transparent 70%);
+    mix-blend-mode: screen;
+    opacity: 0.4;
+    z-index: 1;
+    pointer-events: none;
+    filter: blur(2px);
 }
 
-.hero-text h1 {
-    font-size: clamp(3rem, 6vw, 6rem);
-    line-height: 1.05;
-    font-weight: 700;
-    letter-spacing: -1px;
+
+/* Alternative: More geometric/sharp explosion */
+.hero-geometry::before,
+.hero-geometry::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    transform: translate(-50%, -50%);
 }
 
-.hero-text p {
-    font-size: 1.1rem;
-    margin-top: 1.2rem;
-    line-height: 1.6;
-    opacity: 0.9;
+.hero-geometry::before {
+    background: 
+        linear-gradient(45deg, transparent 40%, #ff0080 40%, #ff0080 60%, transparent 60%),
+        linear-gradient(-45deg, transparent 40%, #00f0ff 40%, #00f0ff 60%, transparent 60%);
+    opacity: 0.6;
 }
+
+.hero-geometry::after {
+    background: 
+        linear-gradient(90deg, transparent 45%, #ffff00 45%, #ffff00 55%, transparent 55%),
+        linear-gradient(0deg, transparent 45%, #00ff88 45%, #00ff88 55%, transparent 55%);
+    opacity: 0.4;
+    transform: translate(-50%, -50%) rotate(30deg);
+}
+
+
 
 .hero-visual {
     position: relative;
     display: flex;
-    flex: 1;
     justify-content: flex-end;
     align-items: center;
-    z-index: 2;
+    z-index: 3;
 }
 
 .hero-visual img {
     width: auto;
-    height: 85vh;
+    height: 88vh;
     object-fit: contain;
-    filter: drop-shadow(0 30px 40px rgba(0, 0, 0, 0.6));
-    transform-origin: center;
-    transition: transform 0.35s, filter 0.35s;
+    filter: 
+          drop-shadow(0 30px 40px rgba(0, 0, 0, 0.6))
+          drop-shadow(0 20px 60px rgba(0, 0, 0, 0.8));
+    transform-origin: center bottom;
+    transition: transform 0.5s cubic-bezier(0.35, 1.56, 0.64, 1), filter 0.35s;
 }
 
 .hero-visual img:hover {
@@ -225,26 +279,36 @@ export default {
 .hero-left {
     position: relative;
     flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 75vh;
 }
 
 .hero-cv {
     position: absolute;
-    top: 5%;
-    left: 5%;
+    top: 8%;
+    left: 10%;
     display: flex;
-    gap: 1rem;
+    gap: 0.8rem;
     align-items: center;
     font-size: 1rem;
     z-index: 5;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 0.5rem 1.2rem;
+    backdrop-filter: blur(4px);
 }
 
 .cv-label {
-    color: red;
+    color: #ff0000;
     font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 .cv-name {
     font-weight: 600;
+    color: #fff;
 }
 
 /* RIGHT SIDE */
@@ -253,89 +317,102 @@ export default {
     flex: 1;
     position: relative;
     max-width: 550px;
+    display: flex;
+    flex-direction: column;
+    z-index: 3;
+    padding-right: 2rem;
 }
 
 /* ranking */
 
 .hero-rank {
     position: absolute;
-    top: 0;
+    top: -40;
     right: 0;
-    text-align: right;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    line-height: 1;
 }
 
 .rank-label {
     font-size: 0.7rem;
     letter-spacing: 2px;
     opacity: 0.6;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
 }
 
 .rank-number {
-    font-size: 5rem;
+    font-size: clamp(5rem, 10vw, 9rem);
     font-weight: 800;
     color: #ff2a2a;
+    line-height: 0.85;
+    text-shadow: 
+          0 0 20px rgba(255, 0, 0, 0.5),
+          0 0 40px rgba(255, 0, 0, 0.4);
 }
 
 
 /* Black Title Box */
 .hero-title-box {
-    margin-top: 120px;
+    position: relative;
+    margin-top: 140px;
     background: black;
-    padding: 1.5rem 2rem;
+    padding: 1.8rem 2.5rem;
     clip-path: polygon(0 0, 100% 0, 92% 100%, 0% 100%);
+    border-left: 4px solid #ff0000;
 }
+
+
+.hero-title-box::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 8px;
+    height: 100%;
+    background: linear-gradient(to bottom, #ff0000, transparent);
+    clip-path: polygon(0 0, 100% 0, 0 100%);
+}
+
 
 .hero-title-box h1 {
     font-size: 1.8rem;
     font-weight: 700;
+    margin: 0;
+    text-transform: lowercase;
+    letter-spacing: 0.5px;
 }
 
 
 /* Description */
 .hero-description {
-    margin-top: 2rem;
+    margin-top: 2.5rem;
     line-height: 1.6;
     opacity: 0.85;
+    font-size: 1rem;
+    color: #e0e0e0;
 }
 
 /* Reserved media area */
 .hero-media-placeholder {
     margin-top: 2rem;
     height: 180px;
-    border: 1px solid rgba(255,255,255,0.2)
+    border: 1px solid rgba(255,255,255,0.2);
+    background: rgba(255, 255, 255, 0.02);
+    position: relative;
+    overflow: hidden;
 }
 
 .hero-stack {
     position: absolute;
     bottom: 6vh;
     left: 6vw;
-    z-index: 4;
+    z-index: 11;
 }
 
-.stats {
-    display: flex;
-    gap: 2.5rem;
-    margin-top: 2rem;
-    list-style: none;
-}
-
-.stats li {
-    display: flex;
-    flex-direction: column;
-}
-
-.label {
-    opacity: 0.6;
-    text-transform: uppercase;
-    font-size: 0.7rem;
-    letter-spacing: 1px;
-    margin-bottom: 0.2rem;
-}
-
-.value {
-    font-weight: 600;
-    font-size: 0.85rem;
-}
 
 
 

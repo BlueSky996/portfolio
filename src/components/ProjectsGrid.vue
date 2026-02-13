@@ -80,6 +80,7 @@ export default {
     grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
     gap: 2rem;
     padding: 3rem 6%;
+    margin-top: 4rem;
 }
 
 .project-card {

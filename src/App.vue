@@ -24,8 +24,11 @@ export default {
 </script>
 
 <style>
+
 .stage {
+  position: relative;
   width: 100%;
   overflow-x: hidden;
+  z-index: 1;
 }
 </style>
