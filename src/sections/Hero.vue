@@ -1,6 +1,7 @@
 <template>
     <section class="hero">
         <div class="hero-top-bar"></div>
+        <div class="hero-bottom-bar"></div>
 
 
           <div class="hero-content"> 
@@ -55,9 +56,6 @@
              <div class="hero-stack">
                 <StackSlider />
              </div>
-
-             <!-- FOOTER BAR -->
-              <div class="hero-bottom-bar"></div>
     </section>
 </template>
 
@@ -126,25 +124,18 @@ export default {
     overflow: hidden;
     padding: 0 6vw;
     box-sizing: border-box;
-
-    background:
-    radial-gradient(circle at 30% 50%, rgba(255,255,255,0.06), transparent 50%),
-    linear-gradient(to right, rgba(255,255,255,0.03) 1px, transparent 1px),
-    #0e0e0e;
-
-    background-size: auto, 50px 50px, auto;
     
 }
 
 
 .hero::before {
-  content: "X";
+  content: "K";
   position: absolute;
   top: 8%;
   left: 3%;
   font-size: 30rem;
   font-weight: 900;
-  opacity: 0.03;
+  opacity: 0.5;
   z-index: 0;
   line-height: 1;
 }
@@ -287,12 +278,12 @@ export default {
 
 .hero-cv {
     position: absolute;
-    top: 8%;
+    top: 16%;
     left: 10%;
     display: flex;
     gap: 0.8rem;
     align-items: center;
-    font-size: 1rem;
+    font-size: 2rem;
     z-index: 5;
     background: rgba(0, 0, 0, 0.6);
     padding: 0.5rem 1.2rem;
@@ -384,6 +375,7 @@ export default {
     margin: 0;
     text-transform: lowercase;
     letter-spacing: 0.5px;
+    color: white;
 }
 
 
