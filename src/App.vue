@@ -1,6 +1,7 @@
 <template>
   <main class="stage">
   <BackgroundVideo />
+  <Particles />
   <TopBar />
   <Hero :project="selectedProject" />
   <ProjectsGrid @select="selectedProject = $event" />
@@ -14,9 +15,11 @@ import BottomBar from './components/BottomBar.vue';
 import BackgroundVideo from './components/BackgroundVideo.vue';
 import ProjectsGrid from './components/ProjectsGrid.vue';
 import Hero from "./sections/Hero.vue";
+import Particles from "./components/Particles.vue";
+
 
 export default {
-  components: { TopBar, BottomBar, BackgroundVideo, Hero, ProjectsGrid },
+  components: { TopBar, BottomBar, BackgroundVideo, Hero, ProjectsGrid, Particles },
 
   data() {
     return {

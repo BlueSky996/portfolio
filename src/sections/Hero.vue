@@ -366,7 +366,7 @@ export default {
     margin-top: 2.5rem;
     line-height: 1.6;
     opacity: 0.85;
-    font-size: 1rem;
+    font-size: 4rem;
     color: #e0e0e0;
 }
 
