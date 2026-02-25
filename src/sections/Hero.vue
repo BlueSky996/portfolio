@@ -382,9 +382,11 @@ export default {
 
 .hero-stack {
     position: absolute;
-    bottom: 6vh;
-    left: 6vw;
-    z-index: 11;
+    bottom: 100px;
+    left: 0;
+    right: 0;
+    z-index: 4;
+    padding: 0 4vw;
 }
 
 

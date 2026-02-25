@@ -37,7 +37,7 @@ export default {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    opacity: 0.3;
+    opacity: 0.8;
     filter: blur(1px);
 }
 
