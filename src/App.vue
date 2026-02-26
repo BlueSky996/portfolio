@@ -2,6 +2,7 @@
   <main class="stage">
   <BackgroundVideo />
   <Particles />
+  <Cursortrail /> 
   <TopBar />
   <Hero :project="selectedProject" />
   <ProjectsGrid @select="selectedProject = $event" />
@@ -16,10 +17,11 @@ import BackgroundVideo from './components/BackgroundVideo.vue';
 import ProjectsGrid from './components/ProjectsGrid.vue';
 import Hero from "./sections/Hero.vue";
 import Particles from "./components/Particles.vue";
+import Cursortrail from './components/Cursortrail.vue';
 
 
 export default {
-  components: { TopBar, BottomBar, BackgroundVideo, Hero, ProjectsGrid, Particles },
+  components: { TopBar, BottomBar, BackgroundVideo, Hero, ProjectsGrid, Particles, Cursortrail },
 
   data() {
     return {

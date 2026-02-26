@@ -308,12 +308,13 @@ export default {
 }
 
 .rank-label {
-    font-size: 1.1rem;
+    font-size: 1.5rem;
     letter-spacing: 2px;
     opacity: 0.6;
     text-transform: uppercase;
-    font-weight: 600;
+    font-weight: 900;
     margin-bottom: 0.5rem;
+    color:#00f0ff;
 }
 
 .rank-number {

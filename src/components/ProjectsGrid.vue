@@ -3,13 +3,15 @@
         <h2 class="projects-title">PROJECTS</h2>
 
         <div class="projects-grid">
-        <div
+        <a
           v-for="(project, i) in projects"
           :key="project.title"
+          :href="project.link"
+          target="_blank"
+          rel="noopener noreferrer"
           class="project-card"
           @mouseenter="hoverIn(i)"
           @mouseleave="hoverOut(i)"
-          @click="$emit(`select`, project)"
         >
 
         <!--Slanted card wrapper -->
@@ -34,7 +36,7 @@
           </div>
           </div>
         </div>
-    </div>
+    </a>
     </div>
     </section>
 </template>
@@ -42,6 +44,8 @@
 <script>
 
 import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+gsap.registerPlugin(ScrollTrigger);
 
 export default {
     name: "ProjectsGrid",
@@ -49,26 +53,47 @@ export default {
         return {
             projects: [
                 {
-                    title: "Schordinger",
-                    tagline: "AI-drive twitter sentiment",
+                    title: "JustDropped",
+                    tagline: "help people in general to catch good discount or deals by alerting them through email or by visiting our website and check for those deals",
                     image: "/src/assets/one.png",
-                    stack: "Rust , Solana, NLP",
+                    stack: "Javascript, Python, CSS, HTML, React, FastAPI, Postgres",
+                    link: "https://github.com/BlueSky996/JustDropped",
                 },
                 {
                     title: "Wormhole xmsg",
-                    tagline: "AI-drive twitter sentiment",
-                    image: "/src/assets/two.png",
-                    stack: "Rust , Solana, NLP",
+                    tagline: "It shows how a message can be published on one chain, verified by Wormhole guardians, and securely consumed on another chain.",
+                    image: "/src/assets/two.jpg",
+                    stack: "Solidity , Javascript",
+                    link: "https://github.com/BlueSky996/wormhole-xmsg-scope",
                 },
                 {
                     title: "CoW protocol",
+                    tagline: "off-chain intent aggregation concepts can be expressed using on-chain components such as an order book, a matching engine, and batch settlement logic.",
+                    image: "/src/assets/three.jpg",
+                    stack: "Solidity , Javascript",
+                    link: "https://github.com/BlueSky996/CoW-BatchAuction-Prototype",
+                },
+                {
+                    title: "My Portfolio",
+                    tagline: "My Portfolio website.",
+                    image: "/src/assets/four.jpg",
+                    stack: "Javascript, Vue",
+                    link: "https://github.com/BlueSky996/portfolio",
+                },
+                {
+                    title: "ROTO",
                     tagline: "AI-drive twitter sentiment",
                     image: "/src/assets/three.jpg",
                     stack: "Rust , Solana, NLP",
+                    link: "https://fgfdsd",
                 },
             ],
         };
     },
+
+          mounted() {  // Scroll Animations
+            this.initScrollAnimations();
+        },
 
     methods: {
         hoverIn(i) {
@@ -83,6 +108,35 @@ export default {
                 y: 0, duration: 0.3, ease: "power3.out",
             });
         },
+
+        initScrollAnimations() {
+            // animate title
+            gsap.from(".projects-title", {
+                scrollTrigger: {
+                    trigger: ".projects-title",
+                    start: "top 80%",
+                    toggleActions: "play none none none",
+                },
+                y: 50,
+                opacity: 0,
+                duration: 1,
+                ease: "power3.out",
+            });
+
+            //animate cards 
+            gsap.from(".project-card", {
+                scrollTrigger: {
+                    trigger: ".projects-grid",
+                    start: "top 80%",
+                    toggleActions: "play none none none",
+                },
+                y: 100,
+                opacity: 0,
+                duration: 0.8,
+                stagger: 0.2,  // delay between each cards
+                ease: "power3.out",
+            });
+        }
     },
 };
 
@@ -121,7 +175,7 @@ export default {
 
 .projects-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(480px, 1fr));
     gap: 3rem;
     max-width: 1800px;
     margin: 0 auto;
@@ -131,6 +185,9 @@ export default {
 .project-card {
     position: relative;
     cursor: pointer;
+    text-decoration: none;
+    color: inherit;
+    display: block;
 }
 
 .slant-wrapper {
@@ -142,7 +199,7 @@ export default {
     backdrop-filter: blur(10px);
     box-shadow: 
         0 10px 40px rgba(0, 0, 0, 0.8),
-        0 0 50px rgba(5, 238, 255, 0.3)
+        0 0 50px rgba(5, 238, 255, 0.3),
         inset 0 0 30px rgba(0, 0, 0, 0.5);
     transition: all 0.3s;
 }
