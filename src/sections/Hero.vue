@@ -41,8 +41,25 @@
 
 
              <!-- Reserved Media Area -->
-              <div class="hero-media-placeholder">
-                <!-- Future content here -->
+              <div class="certificates-showcase">
+                  <div class="showcase-header">
+                    <span class="cert-icon">🎓</span>
+                    <span class="cert-label">CERTIFICATIONS</span>
+                  </div>
+                  <div class="cert-grid"></div>
+                      v-for="(cert, i) in certificates"
+                      key:="i"
+                      class="cert-card"
+                      @click="openCertificate(cert.link)"
+                  >
+                      <div class="cert-badge">
+                        <span class="badge-icon">{{ createTextVNode.icon }}</span>
+                      </div>
+                      <div class="cert-info">
+                        <h4>{{ cert.title }}</h4>
+                        <p>{{ cert.description }}</p>
+                      </div>
+                      <div class="cert-arrow">→</div>
               </div>
             </div>
             </div>
@@ -68,6 +85,33 @@ export default {
     props: {
         project: Object,
     },
+
+    data() {
+        return {
+            certificates: [
+                {
+                    title: "Bachelor's Degree",
+                    issuer:"UOT Information Technology - Network Engineering",
+                    icon: "🎓",
+                    link:""
+                },
+                {
+                    title:"CS50x - Computer Science",
+                    issuer: "Harvard University",
+                    icon: "🎓",
+                    link:""
+                },
+                {
+                    title: "Cyfrin web3 ",
+                    issuer: "Blockchain Development",
+                    icon: "",
+                    link:""
+                },
+            ]
+        };
+    },
+
+
     watch: {
         project() {
             this.animateSwap();
@@ -104,6 +148,12 @@ export default {
             this.$nextTick(() => this.animateIn());
             });
         },
+
+    openCertificate(link) {
+        if (link) {
+            window.open(link, "_blank");
+           }
+        }
     },
 };
 
