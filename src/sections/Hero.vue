@@ -30,37 +30,40 @@
 
             <!-- Black angled title box -->
              <div class="hero-title-box">
-                <h1>{{ project?.title || "Top Web3 Engineer" }}</h1>
+                <h1>{{ project?.title || "Full-Stack & Blockchain Engineer" }}</h1>
              </div>
 
             <!-- Description -->
              <p class="hero-description">
                 {{ project?.description || 
-                   "Full stack developer focusing on web3 technologies and future" }}
+                   "Full-stack developer experienced in Rust, Solidity, and modern frontend frameworks, building performant web and on-chain systems." }}
              </p>
 
 
              <!-- Reserved Media Area -->
               <div class="certificates-showcase">
                   <div class="showcase-header">
-                    <span class="cert-icon">🎓</span>
                     <span class="cert-label">CERTIFICATIONS</span>
                   </div>
-                  <div class="cert-grid"></div>
-                      v-for="(cert, i) in certificates"
-                      key:="i"
-                      class="cert-card"
-                      @click="openCertificate(cert.link)"
-                  >
-                      <div class="cert-badge">
-                        <span class="badge-icon">{{ createTextVNode.icon }}</span>
-                      </div>
-                      <div class="cert-info">
+
+                  <div class="cert-grid">
+                    <div
+                         v-for="(cert, i) in certificates"
+                         :key="i"
+                        class="cert-card"
+                        @click="openCertificate(cert.link)"
+                    >
+                        <div class="cert-badge">
+                           <img :src="cert.logo" :alt="cert.issuer" class="cert-logo" />
+                         </div>
+                        <div class="cert-info">
                         <h4>{{ cert.title }}</h4>
-                        <p>{{ cert.description }}</p>
-                      </div>
-                      <div class="cert-arrow">→</div>
-              </div>
+                        <p>{{ cert.issuer }}</p>
+                        </div>
+                        <div class="cert-arrow">→</div>
+                    </div>
+                </div>
+                </div>
             </div>
             </div>
 
@@ -92,19 +95,19 @@ export default {
                 {
                     title: "Bachelor's Degree",
                     issuer:"UOT Information Technology - Network Engineering",
-                    icon: "🎓",
+                    logo: "/src/assets/logos/it.jpg",
                     link:""
                 },
                 {
                     title:"CS50x - Computer Science",
                     issuer: "Harvard University",
-                    icon: "🎓",
+                    logo: "/src/assets/logos/harvard.png",
                     link:""
                 },
                 {
                     title: "Cyfrin web3 ",
                     issuer: "Blockchain Development",
-                    icon: "",
+                    logo: "/src/assets/logos/cyfrin.png",
                     link:""
                 },
             ]
@@ -406,7 +409,6 @@ export default {
     font-size: 2.8rem;
     font-weight: 700;
     margin: 0;
-    text-transform: lowercase;
     letter-spacing: 0.5px;
     color: white;
 }
@@ -414,11 +416,11 @@ export default {
 
 /* Description */
 .hero-description {
-    margin-top: 2.5rem;
+    margin-top: 2.1rem;
     line-height: 1.6;
     opacity: 0.85;
-    font-size: 4rem;
-    color: #e0e0e0;
+    font-size: 2.5rem;
+    color: #ffffff;
 }
 
 /* Reserved media area */
@@ -441,6 +443,161 @@ export default {
 }
 
 
+/* Certificates */
+.certificates-showcase {
+    margin-top: 1rem;
+    margin-bottom: 5rem;
+    background: rgba(0, 0, 0, 0.6);
+    border: 2px solid rgba(0, 240, 255, 0.2);
+    backdrop-filter: blur(15px);
+    padding: 1.5rem;
+    clip-path: polygon(0 0, 100% 0, calc(100% - 25px) 100%, 0 100%);
+    box-shadow:
+        0 0 80px rgba(9, 239, 255, 0.685),
+        inset 0 0 10px rgb(8, 148, 241);
+}
+
+.showcase-header {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    margin-bottom: 1.2rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+
+
+.cert-label {
+    font-size: 2.2rem;
+    font-weight: 900;
+    letter-spacing: 2px;
+    opacity: 0.9;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: #00eeff;
+}
+
+.cert-card {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.8rem 1rem;
+    background: rgba(0, 0, 0, 0.557);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-left: 3px solid #00f0ff;
+    cursor: pointer;
+    transition: all 0.3s;
+    clip-path: polygon(0 0, 100% 0, calc(100% - 8px) 100%, 0 100%);
+}
+
+.cert-card:hover {
+    background: rgba(0, 240, 255, 0.1);
+    border-color: #00f0ff;
+    transform: translateX(5px);
+    box-shadow: 0 4px 15px rgba(0, 240, 255, 0.2);
+}
+
+/* Alternate colors */
+.cert-card:nth-child(2n) {
+    border-left-color: #ff2a2a;
+}
+
+.cert-card:nth-child(2n):hover {
+    background: rgba(255, 42, 42, 0.1);
+    border-color: #ff2a2a;
+    box-shadow: 0 4px 15px rgba(255, 42, 42, 0.2);
+}
+
+.cert-card:nth-child(3n) {
+    border-left-color: #ffcc00;
+}
+
+.cert-card:nth-child(3n):hover {
+    background: rgba(255, 204, 0, 0.1);
+    border-color: #ffcc00;
+    box-shadow: 0 4px 15px rgba(255, 204, 0, 0.2);
+}
+
+
+/* Badge icon */
+.cert-badge {
+    flex-shrink: 0;
+    width: 45px;
+    height: 45px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+}
+
+.cert-logo {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;  /* Fit logo without distortion */
+    filter: brightness(1.1);  /* Make logos pop */
+    transition: transform 0.3s;
+}
+
+.cert-card:hover .cert-logo {
+    transform: scale(1.1);  /* Slight zoom on hover */
+}
+
+/* Certificate info */
+.cert-info {
+    flex: 1;
+}
+
+.cert-info h4 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0 0 0.3rem 0;
+    color: #fff;
+}
+
+.cert-info p {
+    font-size: 1.15rem;
+    margin: 0;
+    line-height: 1.3;
+    color: #ff0000
+}
+
+/* Arrow indicator */
+.cert-arrow {
+    flex-shrink: 0;
+    font-size: 1.2rem;
+    opacity: 0.8;
+    color: #fff;
+    transition: all 0.3s;
+}
+
+.cert-card:hover .cert-arrow {
+    opacity: 1;
+    transform: translateX(3px);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .cert-card {
+        padding: 0.6rem 0.8rem;
+    }
+
+    .cert-badge {
+        width: 35px;
+        height: 35px;
+        font-size: 1.1rem;
+    }
+
+    .cert-info h4 {
+        font-size: 0.85rem;
+    }
+
+    .cert-info p {
+        font-size: 0.7rem;
+    }
+}
 
 
 
