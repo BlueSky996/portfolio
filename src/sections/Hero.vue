@@ -36,7 +36,7 @@
             <!-- Description -->
              <p class="hero-description">
                 {{ project?.description || 
-                   "Full-stack developer experienced in Rust, Solidity, and modern frontend frameworks, building performant web and on-chain systems." }}
+                   "Full-stack developer experienced in Python, Rust, Solidity, and modern frontend frameworks, building performant web and on-chain systems." }}
              </p>
 
 
