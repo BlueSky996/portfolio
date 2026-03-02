@@ -578,24 +578,243 @@ export default {
     transform: translateX(3px);
 }
 
+
 /* Responsive */
+/* ============================================
+   (1024px and below)
+   ============================================ */
+@media (max-width: 1024px) {
+    .hero-content {
+        gap: 3rem;
+    }
+
+    .hero::before {
+        font-size: 20rem;  /* Smaller K watermark */
+    }
+
+    .hero-visual img {
+        height: 70vh;
+        justify-content: center;
+    }
+
+    .hero-geometry {
+        width: 700px;
+        height: 700px;
+    }
+
+    .hero-title-box h1 {
+        font-size: 2.2rem;
+    }
+
+    .hero-description {
+        font-size: 1rem;
+    }
+
+    .rank-number {
+        font-size: clamp(4rem, 8vw, 7rem);
+    }
+}
+
+/* ============================================
+   (768px and below)
+   ============================================ */
 @media (max-width: 768px) {
+    .hero {
+        padding: 0 4vw;
+    }
+
+    .hero-content {
+        flex-direction: column;
+        padding: 60px 0;
+        gap: 2rem;
+    }
+
+    .hero-left,
+    .hero-right {
+        max-width: 100%;
+        width: 100%;
+    }
+
+    .hero-left {
+        min-height: 50vh;
+        padding-left: 0;
+        order: 1;  /* Character first */
+    }
+
+    .hero-visual img {
+        height: 50vh;
+        max-height: 500px;
+        margin-left: 200px;
+    }
+
+    .hero-cv {
+        top: 5%;
+        left: 5%;
+        font-size: 0.9rem;
+        padding: 0.4rem 1rem;
+    }
+
+    .hero-geometry {
+        width: 500px;
+        height: 500px;
+    }
+
+    .hero::before {
+        font-size: 12rem;
+        top: 5%;
+        left: 0;
+    }
+
+    .hero-right {
+        order: 2;  /* Content second */
+        padding-right: 0;
+    }
+
+    .hero-rank {
+        position: relative;
+        top: 0;
+        align-items: center;
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+
+    .rank-label {
+        font-size: 0.8rem;
+    }
+
+    .rank-number {
+        font-size: 5rem;
+    }
+
+    .hero-title-box {
+        margin-top: 0;
+    }
+
+    .hero-title-box h1 {
+        font-size: 1.8rem;
+    }
+
+    .hero-description {
+        font-size: 0.95rem;
+        margin-top: 1.5rem;
+    }
+
+    .certificates-showcase {
+        margin-top: 1.5rem;
+    }
+
+    .hero-stack {
+        position: relative;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin-top: 3rem;
+        padding: 0;
+    }
+}
+
+/* ============================================
+   (480px and below)
+   ============================================ */
+@media (max-width: 480px) {
+    .hero {
+        padding: 0 3vw;
+    }
+
+    .hero-visual img {
+        height: 40vh;
+        margin-left: 200px;
+        transform: translateX(0);
+    }
+
+    .hero-cv {
+        font-size: 0.75rem;
+        padding: 0.3rem 0.8rem;
+        gap: 0.5rem;
+    }
+
+    .hero-geometry {
+        width: 350px;
+        height: 350px;
+    }
+
+    .hero::before {
+        font-size: 8rem;
+    }
+
+    .rank-label {
+        font-size: 0.65rem;
+        letter-spacing: 1px;
+    }
+
+    .rank-number {
+        font-size: 3.5rem;
+    }
+
+    .hero-title-box {
+        padding: 1.2rem 1.5rem;
+    }
+
+    .hero-title-box h1 {
+        font-size: 1.4rem;
+    }
+
+    .hero-description {
+        font-size: 0.85rem;
+        line-height: 1.5;
+    }
+
     .cert-card {
         padding: 0.6rem 0.8rem;
+        gap: 0.8rem;
     }
 
     .cert-badge {
         width: 35px;
         height: 35px;
-        font-size: 1.1rem;
+    }
+
+    .cert-logo {
+        width: 100%;
+        height: 100%;
     }
 
     .cert-info h4 {
-        font-size: 0.85rem;
+        font-size: 0.8rem;
     }
 
     .cert-info p {
-        font-size: 0.7rem;
+        font-size: 0.65rem;
+    }
+
+    .showcase-header {
+        margin-bottom: 1rem;
+    }
+
+    .cert-label {
+        font-size: 0.6rem;
+    }
+}
+
+/* ============================================
+   (360px and below)
+   ============================================ */
+@media (max-width: 360px) {
+    .hero-title-box h1 {
+        font-size: 1.2rem;
+    }
+
+    .hero-description {
+        font-size: 0.8rem;
+    }
+
+    .rank-number {
+        font-size: 3rem;
+    }
+
+    .hero-visual img {
+        height: 35vh;
+        justify-content: center;
     }
 }
 
