@@ -285,7 +285,8 @@ export default {
 
 .hero-visual img {
     width: auto;
-    height: 88vh;
+    height: 100vh;
+    margin-bottom: 500px;
     object-fit: contain;
     filter: 
           drop-shadow(0 30px 40px rgba(0, 0, 0, 0.6))
@@ -312,8 +313,8 @@ export default {
 
 .hero-cv {
     position: absolute;
-    top: 16%;
-    left: 10%;
+    top: 4%;
+    left: 3%;
     display: flex;
     gap: 0.8rem;
     align-items: center;
@@ -372,7 +373,7 @@ export default {
 
 .rank-number {
     visibility: visible !important;
-    font-size: clamp(5rem, 10vw, 9rem);
+    font-size: clamp(5rem, 10vw, 6rem);
     font-weight: 800;
     color: #ff2a2a;
     line-height: 0.85;
@@ -406,7 +407,7 @@ export default {
 
 
 .hero-title-box h1 {
-    font-size: 2.8rem;
+    font-size: 2.1rem;
     font-weight: 700;
     margin: 0;
     letter-spacing: 0.5px;
@@ -419,8 +420,9 @@ export default {
     margin-top: 2.1rem;
     line-height: 1.6;
     opacity: 0.85;
-    font-size: 2.5rem;
+    font-size: 2.0rem;
     color: #ffffff;
+    margin-bottom: 200px;
 }
 
 /* Reserved media area */
