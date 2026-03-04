@@ -175,8 +175,8 @@ export default {
 
 .projects-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(480px, 1fr));
-    gap: 3rem;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 2.5rem;
     max-width: 1800px;
     margin: 0 auto;
 }
@@ -217,7 +217,7 @@ export default {
 .project-image {
     position: relative;
     width: 100%;
-    height: 550px;  
+    height: 450px;  
     overflow: hidden;
 }
 
@@ -253,8 +253,8 @@ export default {
 .project-content {
     position: relative;
     transform: skewY(3deg);
-    padding: 2rem 2rem 2.5rem;
-    min-height: 180px; 
+    padding: 1.5rem 1.5rem 2rem;
+    min-height: 160px; 
 }
 
 

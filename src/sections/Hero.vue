@@ -224,8 +224,8 @@ export default {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%) rotate(-15deg);
-    width: 1000px;
-    height: 1000px;
+    width: 800px;
+    height: 800px;
     background:
         conic-gradient(from 0deg at 50% 50%,
              #ff0080 0deg,
@@ -318,7 +318,7 @@ export default {
     display: flex;
     gap: 0.8rem;
     align-items: center;
-    font-size: 2rem;
+    font-size: 1.5rem;
     z-index: 5;
     background: rgba(0, 0, 0, 0.6);
     padding: 0.5rem 1.2rem;
@@ -407,7 +407,7 @@ export default {
 
 
 .hero-title-box h1 {
-    font-size: 2.1rem;
+    font-size: 1.8rem;
     font-weight: 700;
     margin: 0;
     letter-spacing: 0.5px;
@@ -417,12 +417,12 @@ export default {
 
 /* Description */
 .hero-description {
-    margin-top: 2.1rem;
+    margin-top: 1.5rem;
     line-height: 1.6;
     opacity: 0.85;
-    font-size: 2.0rem;
+    font-size: 1.2rem;
     color: #ffffff;
-    margin-bottom: 200px;
+    margin-bottom: 1.5rem;
 }
 
 /* Reserved media area */
@@ -447,7 +447,7 @@ export default {
 
 /* Certificates */
 .certificates-showcase {
-    margin-top: 1rem;
+    margin-top: 1.5rem;
     margin-bottom: 5rem;
     background: rgba(0, 0, 0, 0.6);
     border: 2px solid rgba(0, 240, 255, 0.2);
@@ -455,8 +455,8 @@ export default {
     padding: 1.5rem;
     clip-path: polygon(0 0, 100% 0, calc(100% - 25px) 100%, 0 100%);
     box-shadow:
-        0 0 80px rgba(9, 239, 255, 0.685),
-        inset 0 0 10px rgb(8, 148, 241);
+        0 0 80px rgba(0, 239, 255, 0.685),
+        inset 0 0 10px rgb(55, 160, 230);
 }
 
 .showcase-header {
@@ -471,8 +471,8 @@ export default {
 
 
 .cert-label {
-    font-size: 2.2rem;
-    font-weight: 900;
+    font-size: 1.2rem;
+    font-weight: 700;
     letter-spacing: 2px;
     opacity: 0.9;
     text-transform: uppercase;
@@ -553,17 +553,17 @@ export default {
 }
 
 .cert-info h4 {
-    font-size: 1.5rem;
+    font-size: 0.95rem;
     font-weight: 700;
     margin: 0 0 0.3rem 0;
     color: #fff;
 }
 
 .cert-info p {
-    font-size: 1.15rem;
+    font-size: 0.75rem;
     margin: 0;
     line-height: 1.3;
-    color: #ff0000
+    color: #e0e0e0;
 }
 
 /* Arrow indicator */
