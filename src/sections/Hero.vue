@@ -285,8 +285,8 @@ export default {
 
 .hero-visual img {
     width: auto;
-    height: 100vh;
-    margin-bottom: 500px;
+    height: 75vh;
+    margin-bottom: 0;
     object-fit: contain;
     filter: 
           drop-shadow(0 30px 40px rgba(0, 0, 0, 0.6))
