@@ -87,7 +87,7 @@ export default {
     display: inline-flex;
     align-items: center;
     font-weight: 700;
-    font-size: 1.95rem;
+    font-size: 1.55rem;
     letter-spacing: 1px;
     color: #fff;
     text-transform: uppercase;

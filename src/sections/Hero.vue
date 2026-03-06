@@ -95,20 +95,20 @@ export default {
                 {
                     title: "Bachelor's Degree",
                     issuer:"UOT Information Technology - Network Engineering",
-                    logo: "/src/assets/logos/it.jpg",
+                    logo: "/logos/it.jpg",
                     link:""
                 },
                 {
                     title:"CS50x - Computer Science",
                     issuer: "Harvard University",
-                    logo: "/src/assets/logos/harvard.png",
-                    link:""
+                    logo: "logos/harvard.png",
+                    link:"https://courses.edx.org/certificates/348f8fee9fd2492a83794204d881d890"
                 },
                 {
                     title: "Cyfrin web3 ",
                     issuer: "Blockchain Development",
-                    logo: "/src/assets/logos/cyfrin.png",
-                    link:""
+                    logo: "logos/cyfrin.png",
+                    link:"https://profiles.cyfrin.io/u/skymax"
                 },
             ]
         };

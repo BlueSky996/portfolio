@@ -30,7 +30,6 @@
 
          <!-- Project text info-->
           <div class="project-text">
-            <span class="project-label">PROJECT NAME</span>
             <h3>{{ project.title }}</h3>
             <p class="description">{{ project.tagline }}</p>
           </div>
@@ -55,35 +54,35 @@ export default {
                 {
                     title: "JustDropped",
                     tagline: "help people in general to catch good discount or deals by alerting them through email or by visiting our website and check for those deals",
-                    image: "/src/assets/one.png",
+                    image: "one.png",
                     stack: "Javascript, Python, CSS, HTML, React, FastAPI, Postgres",
                     link: "https://github.com/BlueSky996/JustDropped",
                 },
                 {
                     title: "Wormhole xmsg",
                     tagline: "It shows how a message can be published on one chain, verified by Wormhole guardians, and securely consumed on another chain.",
-                    image: "/src/assets/two.jpg",
+                    image: "two.jpg",
                     stack: "Solidity , Javascript",
                     link: "https://github.com/BlueSky996/wormhole-xmsg-scope",
                 },
                 {
                     title: "CoW protocol",
                     tagline: "off-chain intent aggregation concepts can be expressed using on-chain components such as an order book, a matching engine, and batch settlement logic.",
-                    image: "/src/assets/three.jpg",
+                    image: "three.jpg",
                     stack: "Solidity , Javascript",
                     link: "https://github.com/BlueSky996/CoW-BatchAuction-Prototype",
                 },
                 {
                     title: "My Portfolio",
                     tagline: "My Portfolio website.",
-                    image: "/src/assets/four.png",
+                    image: "four.png",
                     stack: "Javascript, Vue",
                     link: "https://github.com/BlueSky996/portfolio",
                 },
                 {
                     title: "ROTO",
                     tagline: "is a Solana smart contract built in Rust using the Solana Program framework. It implements a meme roll and launch cycle with phase control, cooldown logic, and on-chain state management.",
-                    image: "/src/assets/five.png",
+                    image: "five.png",
                     stack: "Rust , Solana, GSAP, Javascript",
                     link: "https://fgfdsd",
                 },
